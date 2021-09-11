@@ -1,0 +1,58 @@
+
+<%- include("partials/header"); -%>
+<a href="/logout" class="btn-primary" style="float: right;" >Log Out</a>
+
+ <br><br>
+
+<% var total = 0; %>
+<% posts.forEach(item => { %> 
+ <% total += item.price;  %>
+  <% }) %>
+
+<div class="card">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 cart">
+                <div class="row">
+                    <div class="col">
+                        <h1> <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                           <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                           </svg>  Shopping Cart</h1>
+                    
+                    <div class="col align-self-center text-right text-muted">Items : <%= posts.length %></div>
+                    <hr/>
+                </div>
+             
+            </div>
+            <%  posts.forEach(function(item){ %>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <img width="150" height="150" src= <%= item.img %> >
+                    <a class="right" href="/delete/<%=item._id%>">Remove </a>
+                    <div class="col">
+                    <br>
+                        <div class="row"><%=item.name%></div>
+                    </div>
+                    
+                    <div class="col">&#8377 <%=item.price %></div>
+                    <hr/>
+                </div>
+            </div>
+           <% }) %>
+
+            <form>
+                <p>SHIPPING</p> <select>
+                    <option class="text-muted">Standard-Delivery- &#8377 50.00</option>
+                </select>
+                <p>Enter ADDRESS</p> <input id="code" placeholder="Enter your area code">
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+              
+                <div class="col text-right">Total : &#8377 <%= total %></div>
+            </div> <a href="/success" class=" align-self-center btn btn-primary">CHECKOUT</a>
+        </div>
+    </div>
+</div>
+
+  
+
+<%- include("partials/footer"); -%>

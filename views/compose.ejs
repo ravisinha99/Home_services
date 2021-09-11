@@ -1,0 +1,27 @@
+
+<%- include("partials/header"); -%>
+
+
+    <h1>Compose</h1>
+
+
+    <form class="" action="/compose" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="postTitle" autocomplete="off">
+        <label>Post</label>
+          <input id="text-box" class="form-control" type="number" name="postBody" autocomplete="off">
+          <label>Image</label>
+          <input id="text-box" class="form-control" type="text" name="postImage" autocomplete="off">
+       
+      </div>
+   
+      <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </form>
+
+   
+
+
+<%- include("partials/footer"); -%>
+
+

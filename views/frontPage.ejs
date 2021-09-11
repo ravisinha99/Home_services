@@ -1,0 +1,25 @@
+
+<%- include("partials/header"); -%>
+
+ <%  availableItems.forEach(function(item){ %>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <img width="150" height="150" src= <%= item.img %> >
+                  
+                    <div class="col">
+                    <br>
+                        <div class="row"><%=item.name%></div>
+                    </div>
+                    
+                    <div class="col">&#8377 <%=item.price %></div>
+
+                     <form class="" action="/add-to-cart/<%=item._id%>" method="post">
+                         <button class="btn btn-primary" type="submit" name="button">Add to cart</button>
+                     </form>
+
+                    <hr/>
+                </div>
+            </div>
+           <% }) %>
+
+<%- include("partials/footer"); -%>
